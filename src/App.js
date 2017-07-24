@@ -20,7 +20,7 @@ class App extends Component {
 		return(
 			<div>
 				<button onClick={this.handleClick}>click to get new props</button>
-				<Test {...this.props} val={this.state.appVal}/>
+				<Test {...this.props} val={this.state.appVal}/>//这个this.props没必要传，因为这已经是props的根了
 			</div>
 		)
 	}
