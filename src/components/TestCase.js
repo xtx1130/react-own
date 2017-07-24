@@ -8,13 +8,17 @@ class Test extends Component{
 		}
 	}
 	componentWillMount() {
-		this.setState({val:'componentWillMount only run once'})
+		//在这里用this.state就可以改变state，无需使用setState
+		this.state = {
+			val:'componentWillMount only run once'
+		}
 	}
 	componentDidMount() {
+		//组件和子组件render完才执行这个钩子
 		this.setState({val:'componentDidMount has run'})
 	}
 	componentWillReceiveProps(newProps) {
-		newProps.val != this.state.val && this.setState({val:'componentWillReceiveProps has run'})
+		newProps.val != this.state.val && this.setState({val:'componentWillReceiveProps has run'})//this.state
 	}
 	shouldComponentUpdate(newProps) {
 		console.log(newProps.val ,this.props.val)
